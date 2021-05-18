@@ -1,4 +1,4 @@
-# vue3-demo
+# Life Log
 
 ## Project setup
 ```
