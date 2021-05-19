@@ -18,7 +18,7 @@ export default defineComponent({
 
 <style lang="scss">
 body {
-  @apply bg-gray-800;
+  @apply bg-gray-900;
 }
 
 #app {

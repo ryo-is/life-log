@@ -55,7 +55,7 @@
               rounded-md
               focus:outline-none
             "
-            rows="5"
+            :rows="5"
             placeholder="Content"
             v-model="state.newTaskContent"
           />

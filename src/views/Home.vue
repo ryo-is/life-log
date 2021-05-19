@@ -1,27 +1,16 @@
 <template>
   <div class="home">
-    <counter-display />
-    <increment-button />
-    <decrement-button />
-    <modal class="mt-2" />
+    <main-graph></main-graph>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CounterDisplay from '@/components/counter/CounterDisplay.vue';
-import IncrementButton from '@/components/counter/IncrementButton.vue';
-import DecrementButton from '@/components/counter/DecrementButton.vue';
-import Modal from '@/components/modal/Modal.vue';
+import MainGraph from '@/components/graph/index.vue';
 
 export default defineComponent({
   name: 'home',
-  components: {
-    CounterDisplay,
-    IncrementButton,
-    DecrementButton,
-    Modal,
-  },
+  components: { MainGraph },
 });
 </script>
 
