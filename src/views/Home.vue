@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <main-graph></main-graph>
+    <suspense>
+      <template #default>
+        <main-graph></main-graph>
+      </template>
+    </suspense>
   </div>
 </template>
 
