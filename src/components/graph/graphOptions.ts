@@ -44,8 +44,6 @@ export const lineGraphOption: ChartOptions<'line'> = {
       stacked: false,
       min: 0,
       ticks: {
-        stepSize: 1,
-        maxTicksLimit: 10,
         color: 'rgba(255, 255, 255, .8)',
         font: {
           size: 16,

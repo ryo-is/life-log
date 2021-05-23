@@ -1,11 +1,13 @@
 import { inject, InjectionKey } from 'vue';
 import { counterStore } from './counter';
 import { tasksStore } from './tasks';
+import { graphStore } from './graph';
 
 export default function globalStore() {
   return {
     counter: counterStore(),
     tasksStore: tasksStore(),
+    graphStore: graphStore(),
   };
 }
 

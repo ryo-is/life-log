@@ -2,7 +2,7 @@
   <div class="home">
     <suspense>
       <template #default>
-        <main-graph></main-graph>
+        <graph-widget />
       </template>
     </suspense>
   </div>
@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import MainGraph from '@/components/graph/index.vue';
+import GraphWidget from '@/components/widgets/graph.vue';
 
 export default defineComponent({
   name: 'home',
-  components: { MainGraph },
+  components: { GraphWidget },
 });
 </script>
 

@@ -1,42 +1,54 @@
 <template>
-  <div class="graph">
-    <canvas id="canvas" class="canvas"></canvas>
-  </div>
+  <canvas id="canvas" class="canvas"></canvas>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
-import { Chart } from 'chart.js';
+import { defineComponent, onMounted, PropType } from 'vue';
+import { Chart, ChartOptions } from 'chart.js';
 import { Classic10 } from 'chartjs-plugin-colorschemes/src/colorschemes/colorschemes.tableau';
 import { lineGraphOption } from '@/components/graph/graphOptions';
 
+type ChartData =
+  | number[]
+  | { x: number | string; y: number }[]
+  | { [k: string]: number };
+
+let lineChart: Chart<'line', ChartData, string> | null = null;
+
 export default defineComponent({
-  name: 'graph',
-  async setup() {
-    console.log('setup');
-
-    const getData = () => {
-      return new Promise<number[]>((resolve) => {
-        return setTimeout(() => {
-          resolve([3, 1, 5, 2, 4]);
-        }, 1000);
-      });
-    };
-
-    onMounted(async () => {
+  name: 'lineChart',
+  props: {
+    chartData: {
+      type: Array as PropType<ChartData>,
+      default: () => [],
+    },
+    chartOptions: {
+      type: Object as PropType<ChartOptions<'line'>>,
+      default: lineGraphOption,
+    },
+  },
+  watch: {
+    chartData(v: ChartData) {
+      if (lineChart) {
+        lineChart.data.datasets[0].data = v;
+        lineChart.update();
+      }
+    },
+  },
+  setup(props) {
+    onMounted(() => {
       const canvas = document.getElementById('canvas');
       if (canvas) {
         const ctx = (canvas as HTMLCanvasElement).getContext('2d');
         if (ctx) {
-          const data = await getData();
-          new Chart(ctx, {
+          lineChart = new Chart(ctx, {
             type: 'line',
             data: {
               labels: ['a', 'b', 'c', 'd', 'e'],
               datasets: [
                 {
                   label: 'data',
-                  data,
+                  data: props.chartData,
                   borderColor: Classic10[0],
                   backgroundColor: Classic10[0],
                   pointBackgroundColor: Classic10[0],
@@ -47,7 +59,7 @@ export default defineComponent({
                 },
               ],
             },
-            options: lineGraphOption,
+            options: props.chartOptions,
           });
         }
       }
@@ -55,10 +67,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.graph {
-  margin: auto;
-  width: 50%;
-}
-</style>
