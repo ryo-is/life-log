@@ -2,7 +2,7 @@ import { ChartOptions } from 'chart.js';
 
 export const lineGraphOption: ChartOptions<'line'> = {
   layout: {
-    padding: 0,
+    padding: 20,
   },
   plugins: {
     legend: {

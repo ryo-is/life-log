@@ -23,11 +23,21 @@ module.exports = {
       2: 2,
       3: 3,
     },
-
     extend: {
       colors: {
         'font-color': '#ececec',
       },
+    },
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      5: '5px',
+      6: '6px',
+      7: '7px',
+      8: '8px',
     },
   },
   variants: {},

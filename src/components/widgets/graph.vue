@@ -1,13 +1,10 @@
 <template>
-  <div class="graph">
-    <line-chart :chart-data="chartData.value" />
-  </div>
+  <line-chart :chart-data="chartData.value" />
   <button-element
     class="bg-blue-500 hover:bg-blue-700"
     :buttonText="'Set Data'"
     @action="setData"
   ></button-element>
-  <div>{{ chartData }}</div>
 </template>
 
 <script lang="ts">
@@ -32,9 +29,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.graph {
-  margin: auto;
-  width: 50%;
-}
-</style>
+<style lang="scss" scoped></style>
