@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex flex-wrap pt-2">
+  <div class="home flex flex-wrap pt-2 items-start">
     <div class="calendar w-1/2 px-6">
       <suspense>
         <template #default>

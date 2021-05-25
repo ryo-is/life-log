@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-type CalendarItem = {
+type DateItem = {
   date: dayjs.Dayjs;
 };
 export const formatDate = (date: string, format: string) => {
@@ -27,9 +27,9 @@ export const genCalendarItems = (base: dayjs.Dayjs = dayjs()) => {
   const firstDay = base.startOf('M').get('d');
   const calendarItemNumber = lastDate + firstDay;
   const startDate = base.startOf('M').subtract(firstDay, 'd');
-  const calendarItems: CalendarItem[] = [];
+  const dateItems: DateItem[] = [];
   for (let i = 0; i < calendarItemNumber; i++) {
-    calendarItems.push({ date: startDate.add(i, 'd') });
+    dateItems.push({ date: startDate.add(i, 'd') });
   }
-  return { nowMonth, calendarItems, dayItems, monthItems };
+  return { nowMonth, dateItems, dayItems, monthItems };
 };
