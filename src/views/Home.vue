@@ -1,9 +1,9 @@
 <template>
-  <div class="home flex">
-    <div class="graph w-1/2 px-6">
+  <div class="home flex flex-wrap pt-2">
+    <div class="calendar w-1/2 px-6">
       <suspense>
         <template #default>
-          <graph-widget />
+          <calendar-widget />
         </template>
       </suspense>
     </div>
@@ -19,12 +19,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import GraphWidget from '@/components/widgets/graph.vue';
 import TimelineWidget from '@/components/widgets/timeline.vue';
+import CalendarWidget from '@/components/widgets/calendar.vue';
 
 export default defineComponent({
   name: 'home',
-  components: { GraphWidget, TimelineWidget },
+  components: { TimelineWidget, CalendarWidget },
 });
 </script>
 
